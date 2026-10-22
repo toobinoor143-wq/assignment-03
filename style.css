@@ -1,0 +1,657 @@
+
+/* =========================================
+   STUDENT ADMISSION FORM
+   Theme: Navy Blue, Sky Blue and White
+   Assignment 05 - CSS Design Challenge
+   ========================================= */
+
+
+/* -----------------------------------------
+   1. CSS RESET AND GLOBAL STYLING
+   Element Selector 1: body
+   ----------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #edf3fa;
+    color: #26364a;
+    line-height: 1.6;
+}
+
+
+/* Element Selector 2: main */
+
+main {
+    width: 100%;
+}
+
+
+/* -----------------------------------------
+   2. MAIN PAGE CONTAINER
+   Class Selector 1: .page-container
+   ----------------------------------------- */
+
+.page-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* -----------------------------------------
+   3. PROFESSIONAL HEADER
+   Class Selector 2: .form-header
+
+   Custom Improvement 1:
+   The decorative header uses a blue gradient,
+   a circular logo and a bottom accent line.
+   This creates a professional visual identity.
+
+   Properties: background, border-radius,
+   box-shadow, padding and pseudo-elements.
+   ----------------------------------------- */
+
+.form-header {
+    position: relative;
+    overflow: hidden;
+    padding: 42px 35px 38px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #102a56, #1769aa);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 8px 25px rgba(16, 42, 86, 0.15);
+}
+
+/* Decorative circle in the header */
+
+.form-header::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    top: -100px;
+    right: -55px;
+    border: 25px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.form-header::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    bottom: -145px;
+    left: -70px;
+    border: 25px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 16px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header-tag {
+    margin: 0 0 8px;
+    color: #c5e5ff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.form-header h1 {
+    margin: 0 0 12px;
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.header-description {
+    max-width: 520px;
+    margin: 0 auto;
+    color: #e1edfb;
+    font-size: 15px;
+}
+
+.header-line {
+    width: 65px;
+    height: 4px;
+    margin: 24px auto 0;
+    background-color: #70c7ff;
+    border-radius: 5px;
+}
+
+
+/* -----------------------------------------
+   4. FORM CONTAINER
+   Class Selector 3: .admission-form
+   ----------------------------------------- */
+
+.admission-form {
+    padding: 32px;
+    background-color: #ffffff;
+    border: 1px solid #dce6f1;
+    border-top: none;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 15px 40px rgba(28, 58, 93, 0.08);
+}
+
+.required-note {
+    margin: 0 0 25px;
+    padding: 12px 15px;
+    color: #465a70;
+    background-color: #f0f7ff;
+    border-left: 4px solid #1976d2;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.required-note span {
+    color: #d93045;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+/* -----------------------------------------
+   5. FORM SECTION CARDS
+   Class Selector 4: .form-section
+   ----------------------------------------- */
+
+.form-section {
+    min-width: 0;
+    margin: 0 0 25px;
+    padding: 25px;
+    background-color: #fbfdff;
+    border: 1px solid #d9e5f2;
+    border-radius: 12px;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* Subtle interaction on section cards */
+
+.form-section:hover {
+    border-color: #9bc9f2;
+    box-shadow: 0 5px 16px rgba(25, 118, 210, 0.06);
+}
+
+.form-section legend {
+    max-width: 100%;
+    padding: 0 12px;
+    color: #173d70;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    color: #ffffff;
+    background-color: #1769aa;
+    border-radius: 8px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.section-title {
+    vertical-align: middle;
+}
+
+.section-description {
+    margin: 0 0 17px;
+    color: #65758a;
+    font-size: 13px;
+}
+
+
+/* -----------------------------------------
+   6. INPUT GRID AND FIELD SPACING
+   Class Selector 5: .form-grid
+   ----------------------------------------- */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* Element Selector 3: label */
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #263d59;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Required field indicator */
+
+.required-field::after {
+    content: " *";
+    color: #d93045;
+    font-weight: bold;
+}
+
+
+/* -----------------------------------------
+   7. ALL INPUT FIELDS
+   Class Selector 6: .form-group
+   ----------------------------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid #cbd8e7;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #24364b;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background-color 0.2s ease;
+}
+
+/* Placeholder styling */
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+/* Focus state: visible when user selects a field */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #1976d2;
+    background-color: #fbfdff;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.14);
+}
+
+/* Invalid required fields are highlighted after interaction */
+
+input:required:invalid:not(:placeholder-shown),
+textarea:required:invalid:not(:placeholder-shown) {
+    border-color: #d93045;
+}
+
+select {
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 125px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.field-hint {
+    margin-top: 7px;
+    color: #718096;
+    font-size: 12px;
+}
+
+
+/* -----------------------------------------
+   8. TWO ID SELECTORS
+   Used for specific form fields
+   ----------------------------------------- */
+
+#fullname {
+    letter-spacing: 0.2px;
+}
+
+#email {
+    background-color: #fcfdff;
+}
+
+
+/* -----------------------------------------
+   9. RADIO AND CHECKBOX OPTIONS
+   Vertical column layout for both sections
+   Class Selector 7: .option-list
+   ----------------------------------------- */
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 13px 15px;
+    background-color: #ffffff;
+    border: 1px solid #dce5ef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.option-card:hover {
+    background-color: #f0f7ff;
+    border-color: #8bbce9;
+    transform: translateX(3px);
+}
+
+.option-card:focus-within {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.12);
+}
+
+.option-card input[type="radio"],
+.option-card input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #1769aa;
+    cursor: pointer;
+}
+
+.option-text {
+    color: #344860;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* -----------------------------------------
+   10. FORM BUTTONS
+   Class Selector 8: .form-actions
+   ----------------------------------------- */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.submit-btn,
+.reset-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.submit-btn {
+    flex: 1;
+    color: #ffffff;
+    background-color: #1769aa;
+    border: 1px solid #1769aa;
+    box-shadow: 0 4px 12px rgba(23, 105, 170, 0.18);
+}
+
+.submit-btn span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.submit-btn:hover {
+    background-color: #104d82;
+    border-color: #104d82;
+    box-shadow: 0 7px 16px rgba(23, 105, 170, 0.25);
+    transform: translateY(-2px);
+}
+
+.submit-btn:focus-visible,
+.reset-btn:focus-visible {
+    outline: 3px solid #73baff;
+    outline-offset: 3px;
+}
+
+.reset-btn {
+    color: #29445f;
+    background-color: #edf3fa;
+    border: 1px solid #d0dce9;
+}
+
+.reset-btn:hover {
+    background-color: #dce9f7;
+    border-color: #a8c5e4;
+}
+
+.submit-btn:active,
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+
+/* -----------------------------------------
+   11. FOOTER
+   Class Selector 9: .form-footer
+   ----------------------------------------- */
+
+.form-footer {
+    padding: 25px 15px 5px;
+    text-align: center;
+    color: #63758b;
+    font-size: 13px;
+}
+
+.form-footer p {
+    margin: 5px 0;
+}
+
+.footer-name {
+    color: #173d70;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.copyright {
+    margin-top: 14px !important;
+    color: #8795a7;
+    font-size: 12px;
+}
+
+
+/* -----------------------------------------
+   12. RESPONSIVE DESIGN
+   Desktop, tablet and mobile screens
+   ----------------------------------------- */
+
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .page-container {
+        width: 100%;
+    }
+
+    .form-header {
+        padding: 30px 18px;
+        border-radius: 13px 13px 0 0;
+    }
+
+    .header-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 18px;
+    }
+
+    .header-tag {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .form-header h1 {
+        font-size: 25px;
+    }
+
+    .header-description {
+        font-size: 13px;
+    }
+
+    .admission-form {
+        padding: 20px 14px;
+        border-radius: 0 0 13px 13px;
+    }
+
+    .required-note {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .form-section {
+        padding: 20px 13px;
+        margin-bottom: 20px;
+    }
+
+    .form-section legend {
+        padding: 0 5px;
+        font-size: 15px;
+    }
+
+    .section-number {
+        width: 27px;
+        height: 27px;
+        margin-right: 5px;
+        font-size: 11px;
+    }
+
+    /* Stack form fields in one column on mobile */
+
+    .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    input[type="date"],
+    select,
+    textarea {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    .option-card {
+        padding: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .submit-btn,
+    .reset-btn {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .form-footer {
+        font-size: 12px;
+    }
+}
+
+
+/* Extra-small screens */
+
+@media screen and (max-width: 360px) {
+
+    body {
+        padding: 10px 7px;
+    }
+
+    .form-header h1 {
+        font-size: 22px;
+    }
+
+    .admission-form {
+        padding: 16px 10px;
+    }
+
+    .form-section {
+        padding: 17px 10px;
+    }
+
+    .form-section legend {
+        font-size: 14px;
+    }
+}
